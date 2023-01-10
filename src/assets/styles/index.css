@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos para el selector de modo noche-día */
+
+.box-checkbox {
+  @apply w-12 h-6 flex items-center bg-white dark:bg-black rounded-full border border-solid border-gray-600 dark:border-gray-500 relative;
+}
