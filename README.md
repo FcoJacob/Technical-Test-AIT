@@ -1,31 +1,31 @@
 # Technical_Test_Azertium
 
-This template should help get you started developing with Vue 3 in Vite.
+### Task requirements
 
-## Recommended IDE Setup
+Feel free to spend all the time you want on the exercise as long as the following requirements are met.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- Please complete the user story below.
+- Your code should compile (if necessary) and run in one step. It is ok if there is a build process.
+- JavaScript should be used as a platform.
+- Feel free to use whatever frameworks / libraries / packages you like.
+- Styles can be added with frameworks, libraries, plain css, preprocessors or postprocessors, be imaginative!
+- You must use this placeholder URL for getting the images: https://jsonplaceholder.typicode.com/photos
 
-## Type Support for `.vue` Imports in TS
+### Nice to have:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+- Include tests is a plus.
+- The images can’t pop or flicker, they must appear smoothly on the screen.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+### User Story
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- As a user visiting the root URL
+- I can see a grid of images that fill the screen on load
+- When I scroll the browser, I see more images loaded
+- When I click an image It is removed from the list and disappears
 
-## Customize configuration
+### Acceptance criteria
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
+- The grid should be responsive, showing 2 columns on small devices and more as the device width growths
 
 ### Compile and Hot-Reload for Development
 
@@ -62,10 +62,4 @@ npm run test:e2e -- --project=chromium
 npm run test:e2e -- tests/example.spec.ts
 # Runs the tests in debug mode
 npm run test:e2e -- --debug
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
