@@ -17,8 +17,16 @@ watch(images, (newValue) => {
   allImages.value = [...newValue];
 });
 
+const targetDeletedCardId = ref<number | null>(null);
+
 const deleteImage = (id) => {
-  allImages.value = allImages.value.filter((image) => image?.id !== id);
+  if (targetDeletedCardId.value === null) {
+    targetDeletedCardId.value = id;
+    setTimeout(() => {
+      allImages.value = allImages.value.filter((image) => image?.id !== id);
+      targetDeletedCardId.value = null;
+    }, 600);
+  }
 };
 
 const loadImages = () => {
@@ -40,6 +48,11 @@ const loadImages = () => {
     <Card
       v-for="{ id, url, title: alt } in allImages"
       :key="id"
+      class="cursor-pointer"
+      :class="{
+        'animation-zoomOut': id === targetDeletedCardId,
+        'blocked-card cursor-not-allowed': targetDeletedCardId !== null,
+      }"
       :url="url"
       :alt="alt"
       @click="deleteImage(id)"
@@ -48,4 +61,28 @@ const loadImages = () => {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.blocked {
+  pointer-events: none;
+}
+.animation-zoomOut {
+  animation: zoomOut 0.5s linear;
+}
+
+@keyframes zoomOut {
+  0% {
+    scale: 0.85;
+    opacity: 1;
+  }
+  25% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 0;
+    opacity: 0;
+  }
+}
+</style>

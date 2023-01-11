@@ -1,22 +1,36 @@
 <template>
-  <img
-    id="cover-img"
-    class="rounded-md w-44 h-44 md:w-80 md:h-80 skeleton"
-    alt=""
-  />
+  <div class="w-full h-full relative">
+    <div class="loader-bar"></div>
+    <img class="rounded-md w-full h-full bg-gray-300" alt="" />
+  </div>
 </template>
 
+<script lang="ts" setup>
+defineProps({
+  isLoad: {
+    type: Boolean,
+  },
+});
+</script>
+
 <style scoped>
-.skeleton {
-  animation: skeleton-loading 1s linear infinite alternate;
+.loader-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #7878780c, #ffffff, #7878780c);
+  background-size: 300% 300%;
+  animation: gradient-animation 2s linear infinite alternate;
 }
 
-@keyframes skeleton-loading {
+@keyframes gradient-animation {
   0% {
-    background-color: hsl(200, 20%, 80%);
+    background-position: 0% 50%;
   }
   100% {
-    background-color: hsl(200, 20%, 95%);
+    background-position: 100% 50%;
   }
 }
 </style>

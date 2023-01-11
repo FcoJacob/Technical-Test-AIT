@@ -8,6 +8,7 @@ defineProps<{
 }>();
 
 const isLoad = ref(false);
+
 const onLoadImage = () => {
   setTimeout(() => {
     isLoad.value = true;
@@ -16,10 +17,12 @@ const onLoadImage = () => {
 </script>
 
 <template>
-  <figure class="flex justify-center items-center">
+  <figure
+    class="flex justify-center items-center shadow-md w-44 h-44 md:w-80 md:h-80"
+  >
     <img
       v-show="isLoad"
-      class="rounded-md w-44 h-44 md:w-80 md:h-80"
+      class="rounded-md"
       :src="url"
       :alt="alt"
       @load="onLoadImage"
